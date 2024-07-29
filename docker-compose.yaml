@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  server:
+    working_dir: /app
+    container_name: server
+    build: .
+    ports:
+      - "3000:3000"
+    # volumes:
+    #   - .:/app
+    #   - /app/node_modules
+    #   - /app/dist
+    restart: always
+    env_file:
+      - .env
+    command: ["node", "dist/main.js"]
